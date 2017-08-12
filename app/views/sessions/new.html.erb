@@ -1,0 +1,32 @@
+<div class="col-md-4 col-md-offset-4 central-form">
+
+  <%= form_for(:session, url: login_path, html: {class: "form form-horizontal"}) do |f| %>
+    
+    <% if !flash.empty? %>
+      <div class="form-group">
+        <div class="alert alert-warning" role="alert">
+            <%= flash[:danger] %>
+        </div>
+      </div>
+    <% end %>
+  
+    <div class="form-group">
+      <%= f.email_field :email, class: 'form-control', placeholder: "Email" %>
+    </div>
+    
+    <div class="form-group">
+      <%= f.password_field :password, class: 'form-control', placeholder: "Password" %>
+    </div>
+    
+    <div class="form-group">
+    <%= f.submit "Log in", class: "btn btn-primary" %>
+    <p class="not-registered-message">Not registered? <a href="#">Create an account</a></p>
+    </div>
+  <% end %>
+  
+    
+ 
+</div>
+
+
+<!-- check out https://colorlib.com/wp/html5-and-css3-login-forms/ -->
