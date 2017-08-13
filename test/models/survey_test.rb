@@ -7,6 +7,8 @@ include FactoryGirl::Syntax::Methods
     @user = create(:user) #User.new(name: "Andres Arpi", email: "aarpi@itba.edu.ar", password: "123456"
     @survey = build(:survey) #     feeling 45,   focus 30,    activity_id 4
     @survey.user_id = @user.id
+    @activity = create(:activity)
+    @survey.activity_id = @activity.id
   end
   
   test 'should be valid?' do
@@ -71,4 +73,20 @@ include FactoryGirl::Syntax::Methods
         survey = Survey.find_by(id: @survey.id)
         assert(survey == nil)
       end
+      
+      test 'user_id should be valid' do
+        @survey.user_id = 1000000000000
+        assert_not @survey.valid?
+      end
+      
+      test 'should return activity' do
+        assert (@survey.activity.name == @activity.name)
+      end
+      
+      test 'activity should exist' do
+        @survey.activity_id = 100
+        assert_not @survey.valid?
+      end
+      
+
 end

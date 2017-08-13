@@ -8,6 +8,7 @@ class Survey < ApplicationRecord
 
     #Associations
     belongs_to :user
+    belongs_to :activity
     
     #Callbacks
     before_save { self.created_at = DateTime.now }
