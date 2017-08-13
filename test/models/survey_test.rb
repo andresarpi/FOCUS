@@ -60,4 +60,15 @@ include FactoryGirl::Syntax::Methods
       @survey.focus = 0
       assert_not @survey.valid?
     end
+    
+    #Associations
+      test 'should return user' do
+        assert (@survey.user.id == @user.id)
+      end
+      
+      test 'should delete survey should user be deleted' do
+        @user.destroy
+        survey = Survey.find_by(id: @survey.id)
+        assert(survey == nil)
+      end
 end

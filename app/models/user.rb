@@ -9,6 +9,11 @@ class User < ApplicationRecord
     #format
     before_save { self.email = self.email.downcase }
     
+    #Associations
+    has_many :surveys, dependent: :destroy
+    
+    #Password
     has_secure_password
     validates :password, presence: true
+    
 end
