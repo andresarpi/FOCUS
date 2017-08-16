@@ -179,6 +179,16 @@ footer ul li {
   background: #43A047;
 }
 
+.has-error .help-block {
+  padding-left: 10px;
+  text-align: left;
+}
+
+.field_with_errors input {
+  border-width: 1px;
+  border-style: solid;
+}
+
 //Jumbotron
 .alert {
   border-radius: 0px;

@@ -1,0 +1,43 @@
+<div class="col-md-6 col-md-offset-3 central-form">
+
+  <%= form_for(:survey, url: surveys_path, html: {class: "form form-horizontal"}) do |f| %>
+    
+    <%= render 'shared/flash' %>
+  
+    <div class="form-group <%= 'has-error' if ( areThereErrors(@survey.errors, :feeling) ) %>">
+      <%= f.label :feeling, class: 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
+        <%= f.text_field :feeling, class: 'form-control', placeholder: "How well are you feeling from 1 to 100?" %>
+        <%= form_alert(@survey.errors, :feeling) %>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <%= f.label :activity, class: 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
+        <%= f.collection_select :activity_id, Activity.all.order(:name), :id, :name,
+          {}, {:class=>'form-control'} %>
+      </div>
+    </div>
+    
+    <div class="form-group <%= 'has-error' if ( areThereErrors(@survey.errors, :focus) ) %>">
+      <%= f.label :focus, class: 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
+        <%= f.text_field :focus, class: 'form-control', placeholder: "How focused were you from 1 to 100?" %>
+        <%= form_alert(@survey.errors, :focus) %>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <div class="col-sm-10 col-sm-offset-1">
+        <%= f.submit "Submit Survey", class: "btn btn-primary" %>
+      </div>
+    </div>
+  <% end %>
+  
+    
+ 
+</div>
+
+
+<!-- check out https://colorlib.com/wp/html5-and-css3-login-forms/ -->

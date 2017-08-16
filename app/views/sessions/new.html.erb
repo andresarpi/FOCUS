@@ -2,13 +2,7 @@
 
   <%= form_for(:session, url: login_path, html: {class: "form form-horizontal"}) do |f| %>
     
-    <% if !flash.empty? %>
-      <div class="form-group">
-        <div class="alert alert-warning" role="alert">
-            <%= flash[:danger] %>
-        </div>
-      </div>
-    <% end %>
+    <%= render 'shared/flash' %>
   
     <div class="form-group">
       <%= f.email_field :email, class: 'form-control', placeholder: "Email" %>
