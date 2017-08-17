@@ -5,12 +5,20 @@ class SessionsController < ApplicationController
   
   def create
     user = User.find_by(email: params[:session][:email].downcase)
+    
     if user && user.authenticate(params[:session][:password])
-      log_in(user)
-      render html: "You are correctly logged in"
+      
+        log_in(user)
+        
+        if !session[:forwarding_url].nil?
+            redirect_back_to_forwarding_url
+        else
+            render html: "You are correctly logged in"
+        end
+      
     else
-      flash.now[:danger] = "Invalid user/password combo"
-      render 'new'
+        flash.now[:danger] = "Invalid user/password combo"
+        render 'new'
     end
   end
   

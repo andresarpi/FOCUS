@@ -25,6 +25,7 @@ class SurveysController < ApplicationController
     
     def isUserLoggedIn
       if !is_logged_in?
+        store_location
         flash[:warning] = "Please login first..."
         redirect_to login_path
       end

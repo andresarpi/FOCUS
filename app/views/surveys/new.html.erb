@@ -4,7 +4,7 @@
     
     <%= render 'shared/flash' %>
   
-    <div class="form-group <%= 'has-error' if ( areThereErrors(@survey.errors, :feeling) ) %>">
+    <div class="form-group <%= 'has-error' if ( are_there_errors(@survey.errors, :feeling) ) %>">
       <%= f.label :feeling, class: 'col-sm-2 control-label' %>
       <div class="col-sm-10">
         <%= f.text_field :feeling, class: 'form-control', placeholder: "How well are you feeling from 1 to 100?" %>
@@ -20,7 +20,7 @@
       </div>
     </div>
     
-    <div class="form-group <%= 'has-error' if ( areThereErrors(@survey.errors, :focus) ) %>">
+    <div class="form-group <%= 'has-error' if ( are_there_errors(@survey.errors, :focus) ) %>">
       <%= f.label :focus, class: 'col-sm-2 control-label' %>
       <div class="col-sm-10">
         <%= f.text_field :focus, class: 'form-control', placeholder: "How focused were you from 1 to 100?" %>

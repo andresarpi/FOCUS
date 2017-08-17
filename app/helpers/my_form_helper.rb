@@ -1,7 +1,7 @@
 module MyFormHelper
   def form_alert(error, key)
     
-    if areThereErrors(error, key)
+    if are_there_errors(error, key)
       errorMessage = key.to_s.humanize
       
       error[key].each do |msg|
@@ -19,7 +19,7 @@ module MyFormHelper
   end
   
   
-  def areThereErrors(error, key)
+  def are_there_errors(error, key)
     if error[key].count == 0
       false
     else
