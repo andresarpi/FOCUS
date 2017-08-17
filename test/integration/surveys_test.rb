@@ -7,10 +7,14 @@ class SurveysTest < ActionDispatch::IntegrationTest
   
   def setup
     @user = create(:user)
-    delete logout_path
+    @activity = create(:activity)
+    
+    post login_path, params: { session: { email: @user.email, password: @user.password } }
   end
   
   test 'redirects to login and redirects back' do
+    delete logout_path
+    
     get new_survey_path
     assert_redirected_to login_path
     
@@ -19,9 +23,22 @@ class SurveysTest < ActionDispatch::IntegrationTest
   end
   
   test 'shows correct template when logged in' do
-    log_in(@user)
-    
     get new_survey_path
+    assert_template 'surveys/new'
+  end
+  
+  test 'post survey with valid information' do
+    surveyCount = Survey.count
+    post surveys_path, params: { survey: { feeling: 50, focus: 50, activity_id: @activity.id } }
+    assert(surveyCount + 1 == Survey.count)
+  end
+  
+  
+  test "post survey with invalid information" do
+      
+    post surveys_path, params: { survey: { feeling: 0, focus: 50, activity_id: @activity.id } }
+    assert_not(flash.empty?)
+
   end
   
 end

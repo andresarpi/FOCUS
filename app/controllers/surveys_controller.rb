@@ -9,9 +9,10 @@ class SurveysController < ApplicationController
   def create
     @survey = Survey.new(survey_params)
     @survey.created_at = DateTime.now
-    @survey.user_id = 2
+    user = current_user
+    @survey.user_id = user.id
     if @survey.save
-      ##
+      render 'create'
     else
       flash.now[:danger] = "Ops, there was a problem with your survey"
       render 'new'
