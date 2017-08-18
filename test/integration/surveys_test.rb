@@ -35,8 +35,9 @@ class SurveysTest < ActionDispatch::IntegrationTest
   
   
   test "post survey with invalid information" do
-      
-    post surveys_path, params: { survey: { feeling: 0, focus: 50, activity_id: @activity.id } }
+    assert_no_difference 'Survey.count' do
+      post surveys_path, params: { survey: { feeling: 0, focus: 50, activity_id: @activity.id } }
+    end
     assert_not(flash.empty?)
 
   end
