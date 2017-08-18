@@ -12,7 +12,7 @@ class SurveysController < ApplicationController
     user = current_user
     @survey.user_id = user.id
     if @survey.save
-      render 'create'
+      redirect_to @user
     else
       flash.now[:danger] = "Ops, there was a problem with your survey"
       render 'new'
