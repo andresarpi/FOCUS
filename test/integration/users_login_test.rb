@@ -32,7 +32,6 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     assert flash.empty?
   end
   
-  
   test 'logout' do
     
     post login_path, params: { session: { email: @user.email, password: @user.password } }

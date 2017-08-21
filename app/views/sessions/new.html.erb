@@ -12,6 +12,11 @@
       <%= f.password_field :password, class: 'form-control', placeholder: "Password" %>
     </div>
     
+    <%= f.label :remember_me, class: "checkbox inline" do %>
+      <%= f.check_box :remember_me %>
+      <span>Remember me</span>
+    <% end %>
+    
     <div class="form-group">
     <%= f.submit "Log in", class: "btn btn-primary" %>
     <p class="not-registered-message">Not registered? <a href="#">Create an account</a></p>
