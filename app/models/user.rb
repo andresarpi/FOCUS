@@ -8,6 +8,7 @@ class User < ApplicationRecord
 
   #Associations
   has_many :surveys, dependent: :destroy
+  has_one :config, class_name: "UserConfig", dependent: :destroy
   
   #Password
   has_secure_password
