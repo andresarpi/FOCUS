@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170823181445) do
+ActiveRecord::Schema.define(version: 20170825155541) do
 
   create_table "activities", force: :cascade do |t|
     t.string "name"
@@ -32,7 +32,14 @@ ActiveRecord::Schema.define(version: 20170823181445) do
     t.float "start_time"
     t.float "end_time"
     t.string "time_zone"
+    t.integer "times"
     t.index ["user_id"], name: "index_user_configs_on_user_id", unique: true
+  end
+
+  create_table "user_survey_schedules", force: :cascade do |t|
+    t.integer "user_id"
+    t.float "scheduled_time"
+    t.index ["user_id"], name: "index_user_survey_schedules_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

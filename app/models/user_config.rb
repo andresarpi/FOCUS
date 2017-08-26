@@ -1,6 +1,8 @@
 class UserConfig < ApplicationRecord
     belongs_to :user
     
+    validates :start_time, :end_time, :time_zone, presence: true
+
     validates :start_time , numericality: { greater_than: 0, less_than: 100  }
     validates :end_time , numericality: { greater_than: 0, less_than: 100  }
     
