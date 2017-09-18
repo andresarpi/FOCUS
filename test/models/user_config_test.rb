@@ -33,5 +33,15 @@ class UserConfigTest < ActiveSupport::TestCase
     @configJerusalem.local_end_time(22)
     assert(@configJerusalem.end_time == 20)
   end
+
+  test 'local_start not between 0-24 should throw error' do
+    assert_raises(ArgumentError) { @configBsAs.local_start_time(24) }
+    assert_raises(ArgumentError) { @configBsAs.local_start_time(-0.5) }
+  end
+
+  test 'local_end not between 0-24 should throw error' do
+    assert_raises(ArgumentError) { @configBsAs.local_end_time(24) }
+    assert_raises(ArgumentError) { @configBsAs.local_end_time(-0.5) }
+  end
     
 end

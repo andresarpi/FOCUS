@@ -7,7 +7,7 @@ class UserSurveyScheduleTest < ActiveSupport::TestCase
     @user = create(:user)#User.new(name: "Andres Arpi", email: "aarpi@itba.edu.ar", password: "123456"
     @UserSurveySchedule = UserSurveySchedule.new
     @UserSurveySchedule.user_id = @user.id
-    @UserSurveySchedule.scheduled_time = 22
+    @UserSurveySchedule.scheduled_time = 22.5
   end
 
   test 'should be valid' do

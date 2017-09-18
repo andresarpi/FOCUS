@@ -1,5 +1,6 @@
 class User < ApplicationRecord
-  attr_accessor :remember_token
+  @schedule_factory
+  attr_accessor :remember_token, :schedule_factory
   before_save { self.email = self.email.downcase }
   
   #validations
