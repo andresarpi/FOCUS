@@ -40,17 +40,21 @@ class ScheduleGenerator
 		user.config.times.times do |x|
 			interval_start = my_start_time + (inter * x)
 			interval_end = my_start_time + (inter * (x + 1) )
-			interval = [interval_start, interval_end]
+			interval = [clean_up_number(interval_start), clean_up_number(interval_end)]
 			intervals.push(interval)
 		end
 		return intervals
 	end
 
+	def self.clean_up_number(n)
+		n = (n * 2).floor / 2.0
+		return n
+	end
+
 	def self.calculate_scheduled_times(intervals)
-		debugger
 		scheduled_times = []
 		intervals.each do |interval|
-			result = interval[0] + (Random.rand(interval[1] - interval[0]).to_i + 1.0 ) / 2.0
+			result = interval[0] + (Random.rand(interval[1] - interval[0]).floor+ 1.0 ) / 2.0
 			scheduled_times.push(result) 
 		end
 		return scheduled_times
