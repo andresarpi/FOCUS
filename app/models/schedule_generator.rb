@@ -7,7 +7,14 @@ class ScheduleGenerator
 
 	def self.generate_schedule
 		users = get_users
+		if users.empty?
+			#it shoud throw an exception
+			puts "There were no users with valid configs."
+			return
+		end
+
 		values_string = ""
+
 		users.each  do |u|
 			intervals = calculate_intervals(u)
 			scheduled_times = calculate_scheduled_times(intervals)
@@ -17,6 +24,7 @@ class ScheduleGenerator
 			values_string += ", "
 		end
 		values_string = values_string[0..-3]
+		debugger
 		ActiveRecord::Base.connection.execute("INSERT INTO user_survey_schedules (user_id, scheduled_time) VALUES #{values_string}")
 	end
 
@@ -39,6 +47,7 @@ class ScheduleGenerator
 	end
 
 	def self.calculate_scheduled_times(intervals)
+		debugger
 		scheduled_times = []
 		intervals.each do |interval|
 			result = interval[0] + (Random.rand(interval[1] - interval[0]).to_i + 1.0 ) / 2.0
