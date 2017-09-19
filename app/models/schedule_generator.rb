@@ -23,8 +23,9 @@ class ScheduleGenerator
 			values_string += clean_scheduled_times.map {|st| "(#{u.id}, #{st})"}.join(", ")
 			values_string += ", "
 		end
+
 		values_string = values_string[0..-3]
-		debugger
+		
 		ActiveRecord::Base.connection.execute("INSERT INTO user_survey_schedules (user_id, scheduled_time) VALUES #{values_string}")
 	end
 
