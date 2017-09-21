@@ -7,11 +7,6 @@ class ScheduleGenerator
 
 	def self.generate_schedule
 		users = get_users
-		if users.empty?
-			#it shoud throw an exception
-			puts "There were no users with valid configs."
-			return
-		end
 
 		values_string = ""
 
@@ -79,8 +74,13 @@ class ScheduleGenerator
 	end
 
 	def self.get_users
-		return User.joins(:config)
+		users = User.joins(:config)
 				.select("users.id, user_configs.start_time, user_configs.end_time, user_configs.times")
+		if users.empty?
+			raise Exceptions::NoUsersWithValidConfigError, "There were no users with a vaid config"
+		else
+			return users
+		end
 	end
 
 	def self.assign_factory(user)

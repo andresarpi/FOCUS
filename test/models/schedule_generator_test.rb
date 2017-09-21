@@ -54,7 +54,12 @@ class ScheduleGeneratorTest < ActiveSupport::TestCase
 		ScheduleGenerator.clean_up
 		assert(UserSurveySchedule.count == 0)
 	end
-
+	
+	test 'should throw exception if no user with valid config found' do
+		@userBsAs.config.destroy
+		@userJerusalem.config.destroy
+		assert_raises(Exceptions::NoUsersWithValidConfigError) { ScheduleGenerator.generate_schedule }
+	end
 
 
 end

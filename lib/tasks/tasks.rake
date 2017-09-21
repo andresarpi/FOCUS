@@ -1,4 +1,4 @@
-namespace :survey_send do
+namespace :survey_schedules do
   desc "Execute the schedule generator cleaning up first"
   task generate_schedule_with_clean_up: :environment do
     ScheduleGenerator.clean_up
@@ -16,8 +16,4 @@ namespace :survey_send do
   task clean_up: :environment do
     ScheduleGenerator.clean_up
   end
-
-
-
-
 end
