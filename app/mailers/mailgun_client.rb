@@ -7,7 +7,7 @@ end
 =end
 
 class MailgunClient
-    @@default_api_key = "key-51e7eefbf8d505bd2173942f5beab8a7"
+    @@default_api_key = PrivateKeys::MAILGUN_API_KEY
     @@default_domain = "sandbox18e52f1d8d9c488384badd2bb939e5a4.mailgun.org"
 
     def initialize(domain = nil)
