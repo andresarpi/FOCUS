@@ -11,14 +11,22 @@ class SurveySender
         paywall[:from] = "Mailgun Sandbox <postmaster@sandbox18e52f1d8d9c488384badd2bb939e5a4.mailgun.org>"
         paywall[:subject] = "Time for a FOCUS survey, %recipient.name%"
         paywall[:text] = "Hi %recipient.name%, \n Please go to https://focus.com/surveys/new and complete your survey."
+        
+        users_found = false
 
         UserSurveySchedule.joins(:user)
-                        .where(scheduled_time: 16.0)
+                        .where(scheduled_time: float_now)
                         .select("user_survey_schedules.id, user_survey_schedules.user_id, users.name, users.email")
                         .find_in_batches(batch_size: 100) do |users|
+                            users_found = true
                             send_batch_survey_mail(users, paywall)
                         end
-        debugger
+
+        if users_found
+            puts "Users found and email sent."
+        else
+            puts "No users found so no email sent."
+        end
     end
 
     def send_batch_survey_mail(users, paywall)
@@ -32,7 +40,7 @@ class SurveySender
         end
         paywall[:to] = paywall[:to][0..-3]
         paywall[:'recipient-variables'] = recipient_variables.to_json
-        debugger
+        MailgunClient.new.send_mail(paywall)
     end
 
     private
