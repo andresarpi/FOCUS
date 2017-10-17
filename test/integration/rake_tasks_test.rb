@@ -23,10 +23,17 @@ class RakeTasksTest < ActionDispatch::IntegrationTest
 
   
   test 'clean up existing UserSurveySchedules' do
-    debugger
     Rake::Task['survey_scheduling:clean_up'].invoke
     count = UserSurveySchedule.count
     assert count == 0
+  end
+
+  ######## Survey_sending ############
+  test 'the survey sender is actually sending emails' do  
+    assert_output(/There were/) { Rake::Task['survey_sending:send_survey'].invoke }
+  end
+
+  test "if there are no emails being sent then there shoud be no emails being sent" do
   end
 
   private

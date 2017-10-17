@@ -23,9 +23,9 @@ class SurveySender
                         end
 
         if users_found
-            puts "Users found and email sent."
+            return true
         else
-            puts "No users found so no email sent."
+            return false
         end
     end
 

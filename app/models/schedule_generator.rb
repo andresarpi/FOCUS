@@ -7,7 +7,6 @@ class ScheduleGenerator
 
 	def self.generate_schedule
 		users = get_users
-
 		values_string = ""
 
 		users.each  do |u|
