@@ -34,6 +34,8 @@ class RakeTasksTest < ActionDispatch::IntegrationTest
   end
 
   test "if there are no emails being sent then there shoud be no emails being sent" do
+      ScheduleGenerator.clean_up
+      assert_output(/No emails/) { Rake::Task['survey_sending:send_survey'].invoke }
   end
 
   private
