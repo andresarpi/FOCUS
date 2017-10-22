@@ -5,6 +5,3 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
-
-#activities=[ "Computer/internet/email", "Doing housework",  "Eating", "Exercising",  "Intimate relations", "Nap/resting","On the phone","Other","Praying/worshipping/meditating", "Preparing food", "Relaxing", "Shopping","Socializing","Watching tv", "Working"]
