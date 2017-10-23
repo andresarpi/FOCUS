@@ -41,6 +41,7 @@ class SurveySender
         paywall[:to] = paywall[:to][0..-3]
         paywall[:'recipient-variables'] = recipient_variables.to_json
         MailgunClient.new.send_mail(paywall)
+
     end
 
     private

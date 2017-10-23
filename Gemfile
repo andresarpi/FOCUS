@@ -33,11 +33,12 @@ gem 'bootstrap-sass', '3.3.7'
 
 gem 'rails-controller-testing'
 
+gem 'pg', '0.20.0'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
 group :production do
-  gem 'pg', '0.20.0'
 end
 
 group :development, :test do
@@ -47,8 +48,6 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
   gem 'factory_girl_rails'
-  # Use sqlite3 as the database for Active Record
-  gem 'sqlite3'
 end
 
 group :development do
