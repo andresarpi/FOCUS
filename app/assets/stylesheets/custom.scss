@@ -28,6 +28,13 @@ textarea {
   margin-bottom: 10px;
 }
 
+.inline-logo {
+  margin-right: 10px;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-weight: bold;
+}
+
 
 
 /* typography */
@@ -122,9 +129,9 @@ footer ul li {
 .central-form {
   background-color: #FFF;
   margin-top: 10%;
-  padding: 30px;
-  padding-left: 60px;
-  padding-right: 60px;
+  padding: 60px;
+  padding-bottom: 30px;
+  padding-top: 30px;
   -webkit-box-shadow: 2px 2px 10px 0px rgba(0,0,0,0.75);
   -moz-box-shadow: 2px 2px 10px 0px rgba(0,0,0,0.75);
   box-shadow: 2px 2px 10px 0px rgba(0,0,0,0.75);
