@@ -169,6 +169,10 @@ footer ul li {
   padding: 15px;
 }
 
+.form input[type="text"], input[type="email"], input[type="password"], textarea {
+  background-color: #faffbd !important;
+}
+
 .form .btn {
   font-family: "Roboto", sans-serif;
   text-transform: uppercase;
@@ -201,6 +205,12 @@ footer ul li {
 .field_with_errors input {
   border-width: 1px;
   border-style: solid;
+}
+
+.control-label {
+  text-align: left !important;
+  padding-left: 2px;
+  padding-bottom: 5px;
 }
 
 //Jumbotron
