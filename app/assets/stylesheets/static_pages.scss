@@ -1,3 +1,39 @@
 // Place all the styles related to the StaticPages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+    padding-top: 100px;
+}
+.container-fluid {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.welcome-jumbotron {
+    height: 600px;
+    color: rgba(255,255,255,0.6);
+    background: url('simple-codelines.svg'),#2b3137;
+    background-position: center 10%;
+    background-size: cover;
+    border-radius: 0px !important;
+    padding-top: 60px;
+}
+
+.text-info {
+    text-align: left !important;
+    color: rgba(255,255,255,0.6);
+    font-family: Roboto, -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", "Oxygen", "Ubuntu", "Cantarell", "Open Sans", sans-serif;
+}
+.text-info #title { 
+    font-size: 72px;
+    color: #fff;
+    text-align: left !important;
+}
+
+.welcome-jumbotron .sign-up-form {
+    background-color: white;
+}
+
+.central-form {
+    color: #586069 !important;
+}

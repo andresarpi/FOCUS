@@ -68,6 +68,10 @@ p {
 
 
 /* header */
+.navbar {
+  line-height: 100px;
+  height: 100px;
+}
 
 .nav a{
   color: #FFF !important;
@@ -128,7 +132,6 @@ footer ul li {
 //Form
 .central-form {
   background-color: #FFF;
-  margin-top: 10%;
   padding: 60px;
   padding-bottom: 30px;
   padding-top: 30px;

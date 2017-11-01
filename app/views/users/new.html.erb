@@ -1,6 +1,6 @@
 <div class="col-md-4 col-md-offset-4 central-form">
 
-  <%= form_for(:user, url: users_path, html: {class: "form form-horizontal"}) do |f| %>
+  <%= form_for(:user, url: users_path, html: {class: "form form-horizontal", autocomplete: "off"}) do |f| %>
     
     <div class="form-group">
       <h3>Sign up for <span class="inline-logo">FOCUS</span></h3>
@@ -10,19 +10,19 @@
   
     <div class="form-group <%= 'has-error' if ( are_there_errors(@user.errors, :name) ) %>">
       <%= f.label :name, class: 'control-label col-sm-12' %>
-      <%= f.text_field :name, class: 'form-control', placeholder: "Enter your full name" %>
+      <%= f.text_field :name, class: 'form-control', placeholder: "Enter your full name", autocomplete: "off" %>
       <%= form_alert(@user.errors, :name) %>
     </div>
     
     <div class="form-group <%= 'has-error' if ( are_there_errors(@user.errors, :email) ) %>">
       <%= f.label :email, class: 'control-label col-sm-12' %>
-      <%= f.email_field :email, class: 'form-control', placeholder: "Enter your email" %>
+      <%= f.email_field :email, class: 'form-control', placeholder: "Enter your email", autocomplete: "off" %>
       <%= form_alert(@user.errors, :email) %>
     </div>
     
     <div class="form-group <%= 'has-error' if ( are_there_errors(@user.errors, :password) ) %>">
       <%= f.label :password, class: 'control-label col-sm-12' %>
-      <%= f.password_field :password, class: 'form-control', placeholder: "Enter your password" %>
+      <%= f.password_field :password, class: 'form-control', placeholder: "Enter your password", autocomplete: "off" %>
       <%= form_alert(@user.errors, :password) %>
     </div>
     
