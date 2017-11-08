@@ -1,6 +1,15 @@
 class UsersController < ApplicationController
   def show
-    @user = User.find(params[:id])
+      @user = User.find(params[:id])
+  end
+  
+  def show_me
+    if is_logged_in?
+      @user = current_user
+      render 'show'
+    else
+      redirect_to login_path
+    end
   end
 
   def new

@@ -7,8 +7,12 @@ Rails.application.routes.draw do
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
   
+  get '/myprofile', to: 'users#show_me', as: 'profile'
+  
+  resources :users 
   resources :surveys
-  resources :users
+  
+
 
 
   delete '/logout',  to: 'sessions#destroy'
