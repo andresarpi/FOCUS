@@ -6,31 +6,14 @@
     padding-right: 0px;
 }
 
-.welcome-jumbotron {
-    height: 600px;
-    color: rgba(255,255,255,0.6);
-    background: url('simple-codelines.svg'),#2b3137;
-    background-position: center 10%;
-    background-size: cover;
-    border-radius: 0px !important;
-    padding-top: 60px;
-}
-
 .text-info {
     text-align: left !important;
+    font-size: 26px;
     color: rgba(255,255,255,0.6);
-    font-family: Roboto, -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", "Oxygen", "Ubuntu", "Cantarell", "Open Sans", sans-serif;
+    font-family: Roboto, -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", "Oxygen", "Ubuntu", "Cantarell", "Open Sans", sans-serif !important;
 }
 .text-info #title { 
-    font-size: 50px;
+    font-size: 72px;
     color: #fff;
     text-align: left !important;
-}
-
-.welcome-jumbotron .sign-up-form {
-    background-color: white;
-}
-
-.central-form {
-    color: #586069 !important;
 }
