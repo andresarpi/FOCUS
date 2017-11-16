@@ -11,6 +11,9 @@ class Survey < ApplicationRecord
     belongs_to :activity
     
     #Callbacks
-    before_save { self.created_at = DateTime.now }
+    before_save { if (self.created.nil?) 
+                    self.created = DateTime.now 
+                end
+    }
     
 end
