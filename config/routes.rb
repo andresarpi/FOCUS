@@ -9,9 +9,9 @@ Rails.application.routes.draw do
   
   get '/myprofile', to: 'users#show_me', as: 'profile'
   
-  resources :users 
-  resources :surveys
-  
+  resources :users do
+    resources :surveys
+  end
 
 
 

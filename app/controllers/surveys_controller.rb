@@ -1,18 +1,22 @@
 class SurveysController < ApplicationController
   
-  before_action :isUserLoggedIn, only: [:new, :create]
+  before_action :isUserLoggedIn, only: [:new, :create, :show]
+  
+  def show
+    
+  end
   
   def new
+    @user = current_user
     @survey = Survey.new
   end
   
   def create
     @survey = Survey.new(survey_params)
-    @survey.created_at = DateTime.now
-    user = current_user
-    @survey.user_id = user.id
+    @user = current_user
+    @survey.user_id = @user.id
     if @survey.save
-      redirect_to user
+      redirect_to @user
     else
       flash.now[:danger] = "Ops, there was a problem with your survey"
       render 'new'

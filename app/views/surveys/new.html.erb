@@ -1,6 +1,6 @@
 <div class="col-md-6 col-md-offset-3 central-form">
 
-  <%= form_for(:survey, url: surveys_path, html: {class: "form form-horizontal"}) do |f| %>
+  <%= form_for(:survey, url: user_surveys_path(@user), html: {class: "form form-horizontal"}) do |f| %>
     
     <%= render 'shared/flash' %>
   
