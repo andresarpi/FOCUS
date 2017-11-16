@@ -39,11 +39,14 @@ module SessionsHelper
     
     # Redirects to stored location (or to the default).
     def redirect_back_after_login(user)
-      if session[:forwarding_url].nil?
-        redirect_to user
-      else
+
+      if session[:came_from_email]
+        redirect_to new_user_survey_path(user)
+      elsif session[:forwarding_url]
         redirect_to(session[:forwarding_url])
         session.delete(:forwarding_url)
+      else
+        redirect_to user
       end
     end
     

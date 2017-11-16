@@ -6,8 +6,11 @@ Rails.application.routes.draw do
   
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
+  delete '/logout',  to: 'sessions#destroy'
   
   get '/myprofile', to: 'users#show_me', as: 'profile'
+  
+  get '/newsurvey', to: 'surveys#general_new'
   
   resources :users do
     resources :surveys
@@ -15,6 +18,6 @@ Rails.application.routes.draw do
 
 
 
-  delete '/logout',  to: 'sessions#destroy'
+
 
 end

@@ -41,4 +41,22 @@ class SurveysTest < ActionDispatch::IntegrationTest
     assert_not(flash.empty?)
   end
   
+  ###### New survey from the email ##########
+  test 'redirects to correct new if logged in' do
+    get '/newsurvey'
+    assert_redirected_to new_user_survey_path(@user)
+  end
+  
+  test 'newsurvey redirects to login and redirects back if not logged in' do
+    delete logout_path
+
+    get '/newsurvey'
+    assert_redirected_to login_path
+    
+    post login_path, params: { session: { email: @user.email, password: @user.password } }
+    assert_redirected_to new_user_survey_path(@user)
+  end
+  
+  
+  
 end

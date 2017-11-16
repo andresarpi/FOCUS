@@ -11,6 +11,18 @@ class SurveysController < ApplicationController
     @survey = Survey.new
   end
   
+  def general_new
+    if is_logged_in?
+      user = current_user
+      redirect_to new_user_survey_path(user)
+    else
+      debugger
+      flash[:warning] = "Log in first to complete a survey"
+      session[:came_from_email] = true
+      redirect_to login_path
+    end
+  end
+  
   def create
     @survey = Survey.new(survey_params)
     @user = current_user
