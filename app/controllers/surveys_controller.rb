@@ -2,6 +2,9 @@ class SurveysController < ApplicationController
   
   before_action :isUserLoggedIn, only: [:new, :create, :show]
   
+  def index
+  end
+  
   def show
     
   end
@@ -16,7 +19,6 @@ class SurveysController < ApplicationController
       user = current_user
       redirect_to new_user_survey_path(user)
     else
-      debugger
       flash[:warning] = "Log in first to complete a survey"
       session[:came_from_email] = true
       redirect_to login_path
