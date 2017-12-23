@@ -57,6 +57,12 @@ class SurveysTest < ActionDispatch::IntegrationTest
     assert_redirected_to new_user_survey_path(@user)
   end
   
+  test 'respond with json to index' do
+    post user_surveys_path(@user), params: { survey: { feeling: 50, focus: 50, activity_id: @activity.id } }
+    #post user_surveys_path(@user), params: { survey: { feeling: 50, focus: 50, activity_id: @activity.id } }
+    get user_surveys_path(@user)
+  end
+  
   
   
 end

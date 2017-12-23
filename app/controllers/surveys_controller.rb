@@ -3,10 +3,16 @@ class SurveysController < ApplicationController
   before_action :isUserLoggedIn, only: [:new, :create, :show]
   
   def index
+    user = User.find params[:user_id]
+    if user
+      render json: user.surveys
+    else
+      render json: {status: 404, errors: "Couldn't find the user specified"}
+    end
+    
   end
   
   def show
-    
   end
   
   def new
