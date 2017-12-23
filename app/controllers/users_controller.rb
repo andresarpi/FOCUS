@@ -3,7 +3,7 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
   end
   
-  def show_me
+  def myprofile
     if is_logged_in?
       @user = current_user
       render 'show'
